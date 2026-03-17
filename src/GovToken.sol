@@ -9,9 +9,9 @@ import {Nonces} from "@openzeppelin/contracts/utils/Nonces.sol";
 
 contract GovToken is ERC20, ERC20Permit, ERC20Votes {
     constructor() ERC20("GovToken", "GT") ERC20Permit("GovToken") {}
-
-    // The following functions are overrides required by Solidity.
-
+    function mint(address _to, uint256 _amount) public {
+    _mint(_to, _amount);
+}
     function _update(address from, address to, uint256 value)
         internal
         override(ERC20, ERC20Votes)
